@@ -6,6 +6,7 @@ fetchButton.addEventListener('click', () => {fetchData()});
 
 async function fetchData() {
     const language = document.getElementById('language-input').value;
+    info.innerText = "";
 
     try {
         let response = await fetch('https://restcountries.com/v3.1/lang/' + language)
@@ -35,15 +36,7 @@ async function fetchData() {
 }
 
 
-// FUNKTION FÖR ATT FÅ FRAM INFO OM LÄNDERNA MED E.TARGET
-
-// let links = document.getElementsByClassName('link')
-// for(let link of links) {
-//     link.addEventListener('click', () => {fetchCountry})
-// }
-
 async function fetchCountry(e) {
-    // const country = e.target.innerText;
     let response = await fetch('https://restcountries.com/v3.1/name/' + e.target.innerText)
     let data = await response.json();
 
@@ -52,38 +45,10 @@ async function fetchCountry(e) {
     <img src="${data[0].coatOfArms.png}">
     <h1>${data[0].name.official}</h1>
     <i>Commonly known as ${data[0].name.common}.</i>
-    <p>The capital of ${data[0].name.common} is ${data[0].capital} and they speak.</p>
+    <p>The capital of ${data[0].name.common} is ${data[0].capital} and they speak ${Object.values(data[0].languages)}.</p>
     `
     console.log(data)
 }
 
 
-
-
-// async function langData() {
-//     const lang = 
-
-//     try {
-//         let response = fetch('https://restcountries.com/v3.1/lang/' + language)
-//     } catch(error) {
-//         contents.innerHTML = `
-//             <p>no other countries</p>
-//         `
-//     }
-// }
-
-
-
-
-// let languages = data[0].languages;
-        
-// contents.innerHTML = `
-// <img src="${data[0].flags.svg}">
-// <img src="${data[0].coatOfArms.png}">
-// <h1>${data[0].name.official}</h1>
-// <i>Commonly known as ${data[0].name.common}.</i>
-// <p>The capital of ${data[0].name.common} is ${data[0].capital} and they speak ${Object.values(languages)}.</p>
-// <p>Language isn't restricted by borders, check out if there are any other countries that speak ${Object.values(languages)}!</p>
-// <button type="button" id="lang-button">${Object.values(languages)} speaking countries</button>
-// `
-// console.log(data)
+// ERROR HANTERING & CSS
