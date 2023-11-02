@@ -19,7 +19,7 @@ async function fetchData() {
             name.classList.add('link')
             name.href = "#"
             name.innerText = country
-            document.getElementById('contents').prepend(name)
+            contents.prepend(name)
 
             name.addEventListener('click', fetchCountry)
         
@@ -28,9 +28,7 @@ async function fetchData() {
         }
         console.log(data)
     } catch(error) {
-        contents.innerHTML = `
-            <p>Please write a language</p>
-        `
+        alert(`Please enter a language. Make sure it's spelled correctly.`)
     }
 
 }
