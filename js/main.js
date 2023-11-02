@@ -39,8 +39,10 @@ async function fetchCountry(e) {
     let data = await response.json();
 
     info.innerHTML = `
-    <img src="${data[0].flags.svg}">
-    <img src="${data[0].coatOfArms.png}">
+    <div class="images">
+        <img src="${data[0].flags.svg}" id="flag">
+        <img src="${data[0].coatOfArms.png}" id="CoA">
+    </div>
     <h1>${data[0].name.official}</h1>
     <i>Commonly known as ${data[0].name.common}.</i>
     <p>The capital of ${data[0].name.common} is ${data[0].capital} and they speak ${Object.values(data[0].languages)}.</p>
