@@ -41,15 +41,28 @@ async function fetchCountry(e) {
     let response = await fetch('https://restcountries.com/v3.1/name/' + e.target.innerText)
     let data = await response.json();
 
-    info.innerHTML = `
-    <div class="images">
-        <img src="${data[0].flags.svg}" id="flag">
-        <img src="${data[0].coatOfArms.png}" id="CoA">
-    </div>
-    <h1>${data[0].name.official}</h1>
-    <i>Commonly known as ${data[0].name.common}.</i>
-    <p>The capital of ${data[0].name.common} is ${data[0].capital} and they speak ${Object.values(data[0].languages)}.</p>
-    `
+    if(data[0].coatOfArms.png) {
+        info.innerHTML = `
+        <div class="images">
+            <img src="${data[0].flags.svg}" id="flag">
+            <img src="${data[0].coatOfArms.png}" id="CoA">
+        </div>
+        <h1>${data[0].name.official}</h1>
+        <i>Commonly known as ${data[0].name.common}.</i>
+        <p>The capital of ${data[0].name.common} is ${data[0].capital} and they speak ${Object.values(data[0].languages)}.</p>
+        `
+    } else {
+        info.innerHTML = `
+        <div class="images">
+            <img src="${data[0].flags.svg}" id="flag">
+        </div>
+        <h1>${data[0].name.official}</h1>
+        <i>Commonly known as ${data[0].name.common}.</i>
+        <p>The capital of ${data[0].name.common} is ${data[0].capital} and they speak ${Object.values(data[0].languages)}.</p>
+        `
+    }
+
+
     console.log(data)
 }
 
