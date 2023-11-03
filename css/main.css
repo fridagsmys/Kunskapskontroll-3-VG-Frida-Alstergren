@@ -2,7 +2,7 @@ body {
     width: auto;
 }
 
-#heading, .inputs, #info {
+#heading, h4, .inputs, #info {
     text-align: center;
 }
 
@@ -21,6 +21,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     width: 100vw;
+    padding: 10px;
 }
 
 a {
