@@ -1,4 +1,5 @@
 const contents = document.getElementById('contents');
+const countryLinks = document.getElementById('country-links')
 const info = document.getElementById('info');
 
 const fetchButton = document.getElementById('fetch-button');
@@ -6,12 +7,13 @@ fetchButton.addEventListener('click', () => {fetchData()});
 
 async function fetchData() {
     const language = document.getElementById('language-input').value;
-    info.innerText = "";
+    info.innerHTML = "";
 
     try {
         let response = await fetch('https://restcountries.com/v3.1/lang/' + language)
         let data = await response.json();
         let countries = data.map(element => element.name.common)
+        countryLinks.innerText = "";
         console.log(countries)
 
         for(const country of countries) {
@@ -19,7 +21,8 @@ async function fetchData() {
             name.classList.add('link')
             name.href = "#"
             name.innerText = country
-            contents.prepend(name)
+            countryLinks.append(name)
+            contents.prepend(countryLinks)
 
             name.addEventListener('click', fetchCountry)
         
