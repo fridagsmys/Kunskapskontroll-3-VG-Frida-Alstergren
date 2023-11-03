@@ -1,5 +1,5 @@
 body {
-    width: auto;
+    margin: 0;
 }
 
 #heading, h4, .inputs, #info {
@@ -36,16 +36,32 @@ a:hover, a:active {
 
 .images {
     width: 100vw;
-    margin: 50px 10px;
+    margin: 50px 0px;
     display: flex;
     justify-content: space-evenly;
 }
 
+#flag, #CoA {
+    border: 2px solid rgb(205, 205, 205);
+}
 
 #flag {
     width: 400px;
+    height: fit-content;
 }
 
 #CoA {
     width: 200px;
+    padding: 5px;
+}
+
+@media screen and (max-width: 650px) {
+    .images {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #flag, #CoA {
+        margin: 10px;
+    }
 }
