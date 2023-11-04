@@ -40,7 +40,7 @@ async function fetchCountry(e) {
     if(data[0].coatOfArms.png) {
         info.innerHTML = `
         <div class="images">
-            <img src="${data[0].flags.svg}" id="flag">
+            <img src="${data[0].flags.png}" id="flag">
             <img src="${data[0].coatOfArms.png}" id="CoA">
         </div>
         <h1>${data[0].name.official}</h1>
@@ -52,7 +52,7 @@ async function fetchCountry(e) {
     } else {
         info.innerHTML = `
         <div class="images">
-            <img src="${data[0].flags.svg}" id="flag">
+            <img src="${data[0].flags.png}" id="flag">
         </div>
         <h1>${data[0].name.official}</h1>
         <i>Commonly known as ${data[0].name.common}.</i>
