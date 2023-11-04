@@ -47,7 +47,7 @@ a:hover, a:active {
 
 #flag {
     width: 400px;
-    height: fit-content;
+    /* height: fit-content; */
 }
 
 #CoA {
